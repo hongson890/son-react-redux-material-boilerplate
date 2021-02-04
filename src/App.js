@@ -66,33 +66,3 @@ const actionCreators = {
 
 const connectedApp = connect(mapState, actionCreators)(App);
 export { connectedApp as App };
-
-// const App = () => {
-//   // const routing = useRoutes(routes);
-//
-//   return (
-//     <Router history={history}>
-//       <Switch>
-//         <PrivateRouteWrapper exact path="/" component={DashboardView} />
-//         <Route path="/login" component={LoginView} />
-//         <Route path="/register" component={RegisterView} />
-//         <Redirect from="*" to="/" />
-//       </Switch>
-//     </Router>
-//
-//   // <ThemeProvider theme={theme}>
-//   //   <GlobalStyles />
-//   //   {routing}
-//   // </ThemeProvider>
-//   );
-// };
-//
-// // const AppWrapper = () => {
-// //   return (
-// //     <Router history={history}>
-// //       <App />
-// //     </Router>
-// //   );
-// // };
-//
-// export default App;
