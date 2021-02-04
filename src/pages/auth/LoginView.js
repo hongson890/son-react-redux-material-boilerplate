@@ -5,6 +5,7 @@ import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Button, Container, Link, makeStyles, TextField, Typography } from '@material-ui/core';
 import Page from 'src/components/Page';
+import { useTranslation } from 'react-i18next';
 import { userActions } from '../../_actions';
 
 const useStyles = makeStyles((theme) => ({
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LoginView = () => {
+  const { t } = useTranslation('login');
   const [inputs, setInputs] = useState({
     username: '',
     password: ''
