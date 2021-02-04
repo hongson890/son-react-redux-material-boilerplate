@@ -1,16 +1,15 @@
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import React from 'react';
-import {Router, Switch} from 'react-router-dom';
+import { Router, Switch } from 'react-router-dom';
 import 'src/components/mixins/chartjs';
 import DashboardView from 'src/pages/reports/DashboardView';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import theme from 'src/components/theme';
 import ThemeProvider from '@material-ui/styles/ThemeProvider';
-import {PrivateRouteWrapper} from './components/PrivateRouteWrapper';
-import {history} from './helpers';
+import { PrivateRouteWrapper } from './components/PrivateRouteWrapper';
+import { history } from './helpers';
 import LoginView from './pages/auth/LoginView';
-import {alertActions} from './actions/alert.actions';
-import {RouteWrapper} from './components/RouteWrapper';
+import { RouteWrapper } from './components/RouteWrapper';
 import MainLayout from './components/layouts/MainLayout';
 import DashboardLayout from './components/layouts/DashboardLayout';
 import GlobalStyles from './components/GlobalStyles';
@@ -19,6 +18,8 @@ import CustomerListView from './pages/customer/CustomerListView';
 import ProductListView from './pages/product/ProductListView';
 import SettingsView from './pages/settings/SettingsView';
 import AccountView from './pages/account/AccountView';
+import SuccessSnackbar from './components/SuccessSnackbar';
+import { notificationActions } from './_actions';
 
 class App extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class App extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyles />
+        <SuccessSnackbar />
         <Router history={history}>
           <Switch>
             <PrivateRouteWrapper exact path="/" component={DashboardView} layout={DashboardLayout} />
@@ -59,7 +61,7 @@ function mapState(state) {
 }
 
 const actionCreators = {
-  clearAlerts: alertActions.clear
+  clearAlerts: notificationActions.clear
 };
 
 const connectedApp = connect(mapState, actionCreators)(App);

@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const MainLayout = ({children}) => {
+const MainLayout = ({ children }) => {
   const classes = useStyles();
 
   return (

@@ -3,12 +3,9 @@ import { Link as RouterLink } from 'react-router-dom';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-
-import {
-  Box, Button, Container, Link, makeStyles, TextField, Typography
-} from '@material-ui/core';
+import { Box, Button, Container, Link, makeStyles, TextField, Typography } from '@material-ui/core';
 import Page from 'src/components/Page';
-import { userActions } from '../../actions';
+import { userActions } from '../../_actions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,9 +21,6 @@ const LoginView = () => {
     username: '',
     password: ''
   });
-  let [submitted, setSubmitted] = useState(false);
-  const { username, password } = inputs;
-  // const loggingIn = useSelector((state) => state.authentication.loggingIn);
   const dispatch = useDispatch();
 
   const ui = useSelector((state) => state.ui);
@@ -35,7 +29,7 @@ const LoginView = () => {
   const formik = useFormik({
     initialValues: {
       email: 'son@mailinator.com',
-      password: '123456'
+      password: '1234562'
     },
     validationSchema: Yup.object().shape({
       email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
@@ -47,7 +41,6 @@ const LoginView = () => {
     },
     onSubmit: (values) => {
       console.log(values);
-      setSubmitted = true;
       dispatch(userActions.login(values.email, values.password));
       // navigate('/app/dashboard', { replace: true });
     },
@@ -103,7 +96,6 @@ const LoginView = () => {
             <Box my={2}>
               <Button
                 color="primary"
-                disabled={formik.isSubmitting}
                 fullWidth
                 size="large"
                 type="submit"

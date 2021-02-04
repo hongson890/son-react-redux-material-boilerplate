@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link as RouterLink, NavLink, Redirect} from 'react-router-dom';
+import { Link as RouterLink, NavLink, Redirect } from 'react-router-dom';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import {

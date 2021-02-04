@@ -1,7 +1,6 @@
-import { useHistory } from 'react-router-dom';
-import { userConstants } from '../constants';
+import { userConstants } from '../_constants';
 import { userService } from '../services';
-import { alertActions } from '.';
+import { notificationActions } from '.';
 import { history } from '../helpers';
 
 export const userActions = {
@@ -26,7 +25,7 @@ function login(email, password) {
         },
         (error) => {
           dispatch(failure(error.toString()));
-          dispatch(alertActions.error(error.toString()));
+          dispatch(notificationActions.error(error.toString()));
         }
       );
   };
@@ -50,11 +49,11 @@ function register(user) {
         (user) => {
           dispatch(success());
           history.push('/login');
-          dispatch(alertActions.success('Registration successful'));
+          dispatch(notificationActions.success('Registration successful'));
         },
         (error) => {
           dispatch(failure(error.toString()));
-          dispatch(alertActions.error(error.toString()));
+          dispatch(notificationActions.error(error.toString()));
         }
       );
   };
