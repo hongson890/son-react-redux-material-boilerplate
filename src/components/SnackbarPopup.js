@@ -4,7 +4,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 import { notificationActions } from '../_actions/notification.actions';
 
-export default function SuccessSnackbar() {
+export default function SnackbarPopup() {
   const dispatch = useDispatch();
 
   const { isOpen, message, type } = useSelector(

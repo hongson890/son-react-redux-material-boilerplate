@@ -18,7 +18,7 @@ import CustomerListView from './pages/customer/CustomerListView';
 import ProductListView from './pages/product/ProductListView';
 import SettingsView from './pages/settings/SettingsView';
 import AccountView from './pages/account/AccountView';
-import SuccessSnackbar from './components/SuccessSnackbar';
+import SnackbarPopup from './components/SnackbarPopup';
 import { notificationActions } from './_actions';
 
 class App extends React.Component {
@@ -37,7 +37,7 @@ class App extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <SuccessSnackbar />
+        <SnackbarPopup />
         <Router history={history}>
           <Switch>
             <PrivateRouteWrapper exact path="/" component={DashboardView} layout={DashboardLayout} />
