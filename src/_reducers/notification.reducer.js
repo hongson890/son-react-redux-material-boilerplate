@@ -16,6 +16,13 @@ export function notification(state = {}, action) {
         message: action.message,
         type: 'info'
       };
+    case notificationConstants.WARNING:
+      return {
+        ...state,
+        isOpen: true,
+        message: action.message,
+        type: 'warning'
+      };
     case notificationConstants.ERROR:
       return {
         ...state,

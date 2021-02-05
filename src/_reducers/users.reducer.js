@@ -42,6 +42,13 @@ export function users(state = {}, action) {
           return user;
         })
       };
+    case userConstants.SESSION_TIMEOUT:
+      // remove 'deleting:true' property and add 'deleteError:[error]' property to user
+      return {
+        loggedIn: false,
+        user: {}
+      };
+
     default:
       return state;
   }

@@ -23,7 +23,7 @@ export default function SnackbarPopup() {
       }}
       onClose={handleClose}
       open={isOpen}
-      autoHideDuration={3000}
+      autoHideDuration={5000}
       aria-describedby="client-snackbar"
     >
       <Alert onClose={handleClose} severity={type}>

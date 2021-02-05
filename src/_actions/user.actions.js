@@ -8,8 +8,27 @@ export const userActions = {
   logout,
   register,
   getAll,
+  healthCheck,
   delete: _delete
 };
+
+function healthCheck() {
+  return (dispatch) => {
+    userService.healthCheck()
+      .then(
+        () => {
+          return { type: userConstants.SESSION_ACTIVE };
+        },
+        (error) => {
+          console.log(error);
+          // localStorage.removeItem('user');
+          dispatch(notificationActions.warning('session time out'));
+          return { type: userConstants.SESSION_TIMEOUT };
+          // history.push('/login');
+        }
+      );
+  };
+}
 
 function login(email, password) {
   // eslint-disable-next-line react-hooks/rules-of-hooks

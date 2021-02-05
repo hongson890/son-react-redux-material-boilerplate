@@ -7,6 +7,7 @@ export const userService = {
   getAll,
   getById,
   update,
+  healthCheck,
   delete: _delete
 };
 
@@ -42,6 +43,15 @@ function getAll() {
   };
 
   return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse);
+}
+
+function healthCheck() {
+  const requestOptions = {
+    method: 'GET',
+    headers: authHeader()
+  };
+
+  return fetch(`${config.apiUrl}/accounts/healthCheck`, requestOptions).then(handleResponse);
 }
 
 function getById(id) {

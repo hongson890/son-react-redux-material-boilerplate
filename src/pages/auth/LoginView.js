@@ -31,7 +31,7 @@ const LoginView = () => {
   const formik = useFormik({
     initialValues: {
       email: 'son@mailinator.com',
-      password: '1234562'
+      password: '123456'
     },
     validationSchema: Yup.object().shape({
       email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),

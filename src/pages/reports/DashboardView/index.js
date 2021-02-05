@@ -5,6 +5,7 @@ import {
   makeStyles
 } from '@material-ui/core';
 import Page from 'src/components/Page';
+import { useDispatch } from 'react-redux';
 import Budget from './Budget';
 import LatestOrders from './LatestOrders';
 import LatestProducts from './LatestProducts';
@@ -13,6 +14,7 @@ import TasksProgress from './TasksProgress';
 import TotalCustomers from './TotalCustomers';
 import TotalProfit from './TotalProfit';
 import TrafficByDevice from './TrafficByDevice';
+import { userActions } from '../../../_actions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +27,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Dashboard = () => {
   const classes = useStyles();
-
+  const dispatch = useDispatch();
+  dispatch(userActions.healthCheck());
   return (
     <Page
       className={classes.root}

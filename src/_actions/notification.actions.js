@@ -3,12 +3,19 @@ import { notificationConstants } from '../_constants';
 export const notificationActions = {
   success,
   error,
-  clear
+  clear,
+  warning
 };
 
 function success(message) {
   return (dispatch) => {
     dispatch({ type: notificationConstants.SUCCESS, message });
+  };
+}
+
+function warning(message) {
+  return (dispatch) => {
+    dispatch({ type: notificationConstants.WARNING, message });
   };
 }
 

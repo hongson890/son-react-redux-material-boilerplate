@@ -1,6 +1,6 @@
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import React from 'react';
-import { Router, Switch } from 'react-router-dom';
+import { Route, Router, Switch } from 'react-router-dom';
 import 'src/components/mixins/chartjs';
 import DashboardView from 'src/pages/reports/DashboardView';
 import { connect } from 'react-redux';
@@ -20,6 +20,7 @@ import SettingsView from './pages/settings/SettingsView';
 import AccountView from './pages/account/AccountView';
 import SnackbarPopup from './components/SnackbarPopup';
 import { notificationActions } from './_actions';
+import NotFoundView from './pages/errors/NotFoundView';
 
 class App extends React.Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class App extends React.Component {
             <PrivateRouteWrapper path="/settings" component={SettingsView} layout={DashboardLayout} />
             <RouteWrapper path="/login" component={LoginView} layout={MainLayout} />
             <RouteWrapper path="/register" component={RegisterView} layout={MainLayout} />
+            <Route component={NotFoundView} />
           </Switch>
         </Router>
       </ThemeProvider>
