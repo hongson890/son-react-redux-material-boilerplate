@@ -6,3 +6,4 @@ Feature list:
 5. DIFFERENT LAYOUTS SUPPORT
 6. I18N
 7. WARNING-POPUP
+8. ADDING 404 not found page

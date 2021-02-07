@@ -1,4 +1,7 @@
 {
   "title": "todos",
-  "placeholder": "What needs to be done?"
+  "placeholder": "What needs to be done?",
+  "dashboard" : {
+    "budget": "Budget-en"
+  }
 }
